@@ -25,7 +25,7 @@ jobs:
     - name: Build with Maven
       run: mvn clean package
 
-    - name: Build & push Docker image
+    - name: Build & push Docker
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: zakaria469980/springboot-images-new

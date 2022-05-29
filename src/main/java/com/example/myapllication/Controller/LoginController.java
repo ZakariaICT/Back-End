@@ -1,7 +1,7 @@
 package com.example.myapllication.Controller;
 
-import com.example.myapllication.Model.Teams;
-import com.example.myapllication.Repository.TeamsRepository;
+import com.example.myapllication.Model.Account;
+import com.example.myapllication.Repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,17 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api/v1/")
-public class TeamsController {
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/api/v1")
+public class LoginController {
 
     @Autowired
-    private TeamsRepository teamsRepository;
+    private LoginRepository loginRepository;
 
-    //get All Customers
-    @GetMapping("/teams")
-    public List<Teams> getAllTeams(){
-        return teamsRepository.findAll();
-    }
+
 }

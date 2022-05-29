@@ -6,15 +6,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name= "Customers")
-
-public class Customer {
+@Table(name= "Accounts")
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -28,9 +29,18 @@ public class Customer {
     @Column(name = "email_id")
     private String emailID;
 
-    @Column(name = "price")
-    private String price;
+    @Column(name = "password")
+    private String password;
 
-    @Column(name = "test")
-    private String Test;
+    @Column(name = "PhoneNumber")
+    private Integer phoneNumber;
+
+    @Column(name = "Age")
+    private Integer age;
+
+    //@OneToMany(targetEntity = Favourites.class,cascade = CascadeType.ALL)
+    //@JoinColumn(name = "ac_fk",referencedColumnName = "id")
+    //private List<Favourites> favourites;
+
 }
+

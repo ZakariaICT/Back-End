@@ -35,18 +35,6 @@ class MyApllicationApplicationTests {
     @InjectMocks
     private AccountServiceImpl accountService;
 
-    @Test
-    public void CreateUserSerivce(){
-       /* Account account = new Account();
-        account.setFirstName("Test Name");
-
-        when(accountRepository.save(ArgumentMatchers.any(Account.class))).thenReturn(account);
-
-        Account created = accountController.add(account);
-
-        assertThat(created.getFirstName()).isSameAs(account.getFirstName());
-        verify(accountRepository).save(account); */
-    }
 
     @Test
     void getAllAccounts() {
@@ -54,7 +42,7 @@ class MyApllicationApplicationTests {
     }
 
 
-  /*  @Test
+    /*@Test
     void getAccountbyID(){
     Set<Account> accounts = new HashSet<>();
     Account account = new Account(1, "Fake", "LastName", "last@live.nl", "123456", 16458, 20);

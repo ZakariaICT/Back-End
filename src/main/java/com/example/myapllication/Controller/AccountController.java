@@ -3,6 +3,7 @@ package com.example.myapllication.Controller;
 import com.example.myapllication.DTO.LoginDTO;
 import com.example.myapllication.Exception.ResourceNotFoundException;
 import com.example.myapllication.Model.Account;
+import com.example.myapllication.Model.Accountviewmodel;
 import com.example.myapllication.Repository.AccountRepository;
 import com.example.myapllication.Services.AccountService;
 import com.example.myapllication.Services.AccountServiceImpl;
@@ -16,15 +17,12 @@ import java.util.Map;
 
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:3000/")
 @RequestMapping("/account")
 public class AccountController {
 
     @Autowired
     private AccountServiceImpl accountService;
-
-    @Autowired
-    private AccountRepository accountRepository;
 
     @PostMapping("/add")
     public String add(@RequestBody Account account){
@@ -61,13 +59,19 @@ public class AccountController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/email/{emailID}")
+    public Accountviewmodel Login(@PathVariable String emailID)
+    {
+        return accountService.login(emailID);
+    }
+
     // Login
-    @PostMapping("/login")
+    /*@PostMapping("/login")
     public ResponseEntity<Account> login(@RequestBody LoginDTO loginDTO)
     {
         Account account = accountService.login(loginDTO);
-        return null;
-    }
+        return ResponseEntity.ok(account);
+    }*/
 
 }
 

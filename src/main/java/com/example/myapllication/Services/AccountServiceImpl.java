@@ -3,18 +3,22 @@ package com.example.myapllication.Services;
 import com.example.myapllication.DTO.LoginDTO;
 import com.example.myapllication.Exception.ResourceNotFoundException;
 import com.example.myapllication.Model.Account;
+import com.example.myapllication.Model.Accountviewmodel;
 import com.example.myapllication.Repository.AccountRepository;
+import com.example.myapllication.helper.AccountConvertor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional
 public class AccountServiceImpl implements AccountService{
 
     @Autowired
@@ -35,26 +39,34 @@ public class AccountServiceImpl implements AccountService{
 
     public List<Account> getAllAccounts()
     {
+
         return accountRepository.findAll();
     }
 
     @Override
+    public Accountviewmodel login(String emailID)
+    {
+        Account account = accountRepository.findByemailID(emailID);
+        Accountviewmodel vm = new Accountviewmodel();
+        if(account == null){
+            vm.setLogged(false);
+            return vm;
+        }
+        vm = AccountConvertor.convertAccountToViewModel(account);
+        vm.setLogged(true);
+        return vm;
+    }
+
+    /*@Override
     public Account login(LoginDTO loginDTO) {
         String loggedin = "User logged in";
         String loginFailed =  "User login failed";
-
-
-
         // validation
-
-
         // verify use exist with given email and password
         Account account = accountRepository.findOneByEmailIdIgnoreCaseAndPassword(loginDTO.getEmailId(), loginDTO.getPassword());
-
-
         // response
         return  account;
-    }
+    }*/
 
 
     @Override

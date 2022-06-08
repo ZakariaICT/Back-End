@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
-    Account findOneByEmailIdIgnoreCaseAndPassword(String emailId, String password);
+   // Account findOneByEmailIdIgnoreCaseAndPassword(String email, String password);
+    public Account findByemailID(String emailID);
 }

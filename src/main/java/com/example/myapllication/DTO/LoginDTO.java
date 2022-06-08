@@ -2,14 +2,14 @@ package com.example.myapllication.DTO;
 
 public class LoginDTO {
 
-    private String emailId;
+    private String email;
 
     public String getEmailId() {
-        return emailId;
+        return email;
     }
 
     public void setEmailId(String emailId) {
-        this.emailId = emailId;
+        this.email = emailId;
     }
 
     public String getPassword() {

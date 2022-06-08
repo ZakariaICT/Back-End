@@ -42,5 +42,6 @@ public class Account {
     //@JoinColumn(name = "ac_fk",referencedColumnName = "id")
     //private List<Favourites> favourites;
 
+
 }
 

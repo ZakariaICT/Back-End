@@ -15,8 +15,9 @@ public class MyApllicationApplication {
     //git remote add origin https://github.com/ZakariaICT/Back-End.git
     //git push -u origin main
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         SpringApplication.run(MyApllicationApplication.class, args);
-    }
 
+    }
 }
